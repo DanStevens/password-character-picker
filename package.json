@@ -1,0 +1,9 @@
+{
+  "name": "phrase-indexer",
+  "fullName": "Phrase Indexer",
+  "id": "phrase-indexer@doomy.co.uk",
+  "description": "Shows the position of each character in a given phrase, making it easier to determine the character at a specific position in the phrase. Useful for those 'enter nth character of your passphrase' security prompts of certain sites.",
+  "author": "Dan Stevens",
+  "license": "MPL 2.0",
+  "version": "0.1"
+}
