@@ -22,16 +22,16 @@
     table, tr, td {
       border: 1px solid;
       border-collapse: collapse;
-      padding: 3px;
       text-align: center;
-    }
-    td {
-      /* Set in panel.js */
-      /* width: 15px; */
-      /* height: 15px; */
     }
     #phraseContainer {
       margin-bottom: 20px;
+    }
+    button {
+      width: inherit;
+    }
+    #clipboardNotice {
+      margin: 0px;
     }
   </style>
 
@@ -40,16 +40,19 @@
 <body>
 
 <div id="phraseContainer">
-  <label for="phraseField">Phrase:</label><br />
+  <label for="phraseField">Enter phrase:</label><br />
   <input type="text" id="phraseField" maxlength="99" />
 </div>
 
+<div id="indexTableContainer">
 <table id="indexTable">
   <tbody>
     <tr id="positionRow"><td></td></tr>
     <tr id="characterRow"><td></td></tr>
   </tbody>
 </table>
+<p id="clipboardNotice">Click a button to copy that character to the clipboard.</p>
+</div>
 
 </body>
 

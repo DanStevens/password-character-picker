@@ -1,8 +1,8 @@
 // Config
-var cellSize = 15; // pixels
+var cellSize = 24; // pixels
 
 $(document).ready(function() {
-  $('#indexTable').hide();
+  $('#indexTableContainer').hide();
   $('#phraseField').on('keyup', phraseFieldKeyUpHander);
   $('#positionRow').height(cellSize);
   $('#characterRow').height(cellSize);
@@ -10,20 +10,25 @@ $(document).ready(function() {
 
 function phraseFieldKeyUpHander()
 {
-  $('#indexTable').hide();
+  $('#indexTableContainer').hide();
   if ($('#phraseField').val() !== "") {
-    generateIndexTable($('#phraseField').val());
-    $('#indexTable').show();
+    generateindexTableContainer($('#phraseField').val());
+    $('#indexTableContainer').show();
   }
 }
 
-function generateIndexTable(phrase) {
+function generateindexTableContainer(phrase) {
   $('#positionRow').empty();
   $('#characterRow').empty(); 
   
   for (var i = 0; i < phrase.length; i++) {
     $('<td>' + (i + 1).toString() + '</td>').width(cellSize).appendTo('#positionRow');
-    $('<td>' + phrase[i] + '</td>').width(cellSize).appendTo('#characterRow');
+    var charTd = $('<td>').width(cellSize);
+    $('#characterRow').append(charTd);
+    if (phrase[i] !== ' ') {
+      var charButton = $('<button>').val(phrase[i]).text(phrase[i])
+      charTd.append(charButton);
+    }
   }
   
   $('#indexTable').width(cellSize * phrase.length);
