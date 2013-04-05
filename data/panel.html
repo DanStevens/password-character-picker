@@ -8,22 +8,28 @@
       font: 10pt arial, helvetica, sans-serif;
       padding: 5px;
     }
-      div {
+    div {
       width: 100%;
     }
     #phraseField {
       width: inherit;
     }
+    #indexTable {
+      table-layout: fixed;
+    }
     table, tr, td {
       border: 1px solid;
       border-collapse: collapse;
       padding: 3px;
+      text-align: center;
+    }
+    td {
+      /* Set in panel.js */
+      /* width: 15px; */
+      /* height: 15px; */
     }
     #phraseContainer {
       margin-bottom: 20px;
-    }
-    #indexTable {
-      float: right
     }
   </style>
 
@@ -32,8 +38,8 @@
 <body>
 
 <div id="phraseContainer">
-  <label for="phrase">Phrase</label><br />
-  <input type="text" id="phraseField" />
+  <label for="phraseField">Phrase:</label><br />
+  <input type="text" id="phraseField" maxlength="99" />
 </div>
 
 <table id="indexTable">
