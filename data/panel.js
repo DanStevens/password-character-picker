@@ -26,10 +26,19 @@ function generateindexTableContainer(phrase) {
     var charTd = $('<td>').width(cellSize);
     $('#characterRow').append(charTd);
     if (phrase[i] !== ' ') {
-      var charButton = $('<button>').val(phrase[i]).text(phrase[i])
+      var charButton = $('<button>')
+        .val(phrase[i])
+        .text(phrase[i])
+        .click(characterButtonClickHandler);
       charTd.append(charButton);
     }
   }
   
   $('#indexTable').width(cellSize * phrase.length);
+}
+
+function characterButtonClickHandler() {
+  var event = document.createEvent('CustomEvent');
+  event.initCustomEvent("setClipboard", true, true, { value: $(this).val() });
+  document.documentElement.dispatchEvent(event);
 }
