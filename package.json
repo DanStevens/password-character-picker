@@ -2,7 +2,7 @@
   "name": "phrase-indexer",
   "fullName": "Phrase Indexer",
   "id": "phrase-indexer@doomy.co.uk",
-  "description": "Shows the position of each character in a given phrase, making it easier to determine the character at a specific position in the phrase. Useful for those 'enter nth character of your passphrase' security prompts of certain sites.",
+  "description": "Shows the position of each character in a given phrase, making it easier to determine the character at a specific position in the phrase. Useful for those 'enter nth character of your password' security prompts of certain sites.",
   "author": "Dan Stevens <dan.stevens@doomy.co.uk>",
   "homepage": "https://github.com/DanStevens/phrase-indexer",
   "license": "MIT",

@@ -3,7 +3,7 @@ Phrase Indexer
 
 A Firefox add-on that shows the position of each character in a given 
 phrase, making it easier to determine the character at a specific 
-position. Useful for those 'enter nth character of your passphrase' 
+position. Useful for those 'enter nth character of your password' 
 security prompts of certain sites. 
 
 
