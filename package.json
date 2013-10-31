@@ -1,10 +1,10 @@
 {
-  "name": "phrase-indexer",
-  "fullName": "Phrase Indexer",
-  "id": "phrase-indexer@doomy.co.uk",
-  "description": "Shows the position of each character in a given phrase, making it easier to determine the character at a specific position in the phrase. Useful for those 'enter nth character of your password' security prompts of certain sites.",
+  "name": "password-character-picker",
+  "fullName": "Password Character Picker",
+  "id": "password-character-picker@doomy.co.uk",
+  "description": "Splits a given password into individual characters. A button is provided for each character, which when clicked, copies that character to the clipboard. Useful for those 'enter nth character of your password' security prompts of certain sites.",
   "author": "Dan Stevens <dan.stevens@doomy.co.uk>",
-  "homepage": "https://github.com/DanStevens/phrase-indexer",
+  "homepage": "https://github.com/DanStevens/password-character-picker",
   "license": "MIT",
   "version": "1.1"
 }

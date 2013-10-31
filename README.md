@@ -1,5 +1,5 @@
-Phrase Indexer
-==============
+Password Character Picker
+=========================
 
 A Firefox add-on that shows the position of each character in a given 
 phrase, making it easier to determine the character at a specific 
