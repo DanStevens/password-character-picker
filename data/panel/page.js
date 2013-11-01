@@ -8,6 +8,10 @@ $(document).ready(function() {
   $('#characterRow').height(cellSize);
 });
 
+addon.port.on("setPhraseFieldTypeAttrToPassword", function (arg) {
+  console.log("Calling setPhraseFieldTypeAttrToPassword");
+});
+
 function phraseFieldKeyUpHander()
 {
   $('#indexTableContainer').hide();
@@ -42,3 +46,5 @@ function characterButtonClickHandler() {
   event.initCustomEvent("setClipboard", true, true, { value: $(this).val() });
   document.documentElement.dispatchEvent(event);
 }
+
+

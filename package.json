@@ -6,5 +6,12 @@
   "author": "Dan Stevens <dan.stevens@doomy.co.uk>",
   "homepage": "https://github.com/DanStevens/password-character-picker",
   "license": "MIT",
-  "version": "1.1"
+  "version": "1.2",
+  "preferences": [{
+    "name": "maskPhraseInput",
+    "title": "Mask Input Phrase",
+    "description": "If set to true, the contents of the 'Enter Phrase' input will be masked.",
+    "type": "bool",
+    "value": false
+  }]
 }
