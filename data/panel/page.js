@@ -1,7 +1,10 @@
 // Config
 var cellSize = 24; // pixels
+var maskChar = '•';
+var maskButtons = false;
 
 addon.port.on("show", function (args) {
+  maskButtons = args.prefs["maskButtons"];
   $('#positionRow').height(cellSize);
   $('#characterRow').height(cellSize);
   $('#phraseField').attr("type", args.prefs["maskPhraseInput"] ? "password" : "text");
@@ -20,16 +23,16 @@ function phraseFieldKeyUpHander()
 
 function generateindexTableContainer(phrase) {
   $('#positionRow').empty();
-  $('#characterRow').empty(); 
+  $('#characterRow').empty();
   
   for (var i = 0; i < phrase.length; i++) {
     $('<td>' + (i + 1).toString() + '</td>').width(cellSize).appendTo('#positionRow');
     var charTd = $('<td>').width(cellSize);
     $('#characterRow').append(charTd);
-    if (phrase[i] !== ' ') {
+    if (maskButtons || phrase[i] !== ' ') {
       var charButton = $('<button>')
         .val(phrase[i])
-        .text(phrase[i])
+        .text(maskButtons ? maskChar : phrase[i])
         .click(characterButtonClickHandler);
       charTd.append(charButton);
     }

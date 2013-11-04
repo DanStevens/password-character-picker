@@ -13,5 +13,12 @@
     "description": "If set to true, the contents of the 'Enter Phrase' input will be masked.",
     "type": "bool",
     "value": false
+  },
+  {
+    "name": "maskButtons",
+    "title": "Mask Text of Character Buttons",
+    "description": "If set to true, the text within password character buttons be masked.",
+    "type": "bool",
+    "value": false
   }]
 }
