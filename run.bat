@@ -1,0 +1,5 @@
+@ECHO OFF
+CALL jsl.bat
+ECHO.
+IF NOT ERRORLEVEL 1 CALL cfx-run.bat
+
