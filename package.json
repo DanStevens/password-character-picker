@@ -17,7 +17,14 @@
   {
     "name": "maskButtons",
     "title": "Mask Text of Character Buttons",
-    "description": "If set to true, the text within password character buttons be masked.",
+    "description": "If set to true, the text within password character buttons will be masked.",
+    "type": "bool",
+    "value": false
+  },
+  {
+    "name": "clearPhraseOnPageTurn",
+    "title": "Clear Input Phrase When Active Tab Reloads",
+    "description": "If set to true, the 'Enter Phrase' input will be cleared whenever a page load occurs within the active tab.",
     "type": "bool",
     "value": false
   }]

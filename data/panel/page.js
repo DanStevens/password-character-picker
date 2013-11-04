@@ -12,6 +12,10 @@ addon.port.on("show", function (args) {
   phraseFieldKeyUpHander();
 });
 
+addon.port.on("clearPhraseInput", function (args) {
+  $('#phraseField').val("");
+});
+
 function phraseFieldKeyUpHander()
 {
   $('#indexTableContainer').hide();
