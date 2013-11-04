@@ -1,15 +1,12 @@
 // Config
 var cellSize = 24; // pixels
 
-$(document).ready(function() {
-  $('#indexTableContainer').hide();
-  $('#phraseField').on('keyup', phraseFieldKeyUpHander);
+addon.port.on("show", function (args) {
   $('#positionRow').height(cellSize);
   $('#characterRow').height(cellSize);
-});
-
-addon.port.on("setPhraseFieldTypeAttrToPassword", function (arg) {
-  console.log("Calling setPhraseFieldTypeAttrToPassword");
+  $('#phraseField').attr("type", args.prefs["maskPhraseInput"] ? "password" : "text");
+  $('#phraseField').on('keyup', phraseFieldKeyUpHander);
+  phraseFieldKeyUpHander();
 });
 
 function phraseFieldKeyUpHander()
@@ -42,9 +39,5 @@ function generateindexTableContainer(phrase) {
 }
 
 function characterButtonClickHandler() {
-  var event = document.createEvent('CustomEvent');
-  event.initCustomEvent("setClipboard", true, true, { value: $(this).val() });
-  document.documentElement.dispatchEvent(event);
+  addon.port.emit("setClipboard", $(this).val());
 }
-
-
