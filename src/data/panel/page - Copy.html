@@ -1,0 +1,65 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+  <title>Password Character Picker</title>
+  <script type="text/javascript" src="../jquery.js"></script>
+  <script type="text/javascript" src="page.js"></script>
+  <style type="text/css" media="all">
+    body {
+      font: 10pt arial, helvetica, sans-serif;
+      background-color: #fafafa;
+      padding: 5px;
+    }
+    div {
+      width: 100%;
+    }
+    #phraseField {
+      width: inherit;
+    }
+    #indexTable {
+      table-layout: fixed;
+    }
+    #characterRow button {
+      font: 10pt Courier New, Monospace;
+    }
+    table, tr, td {
+      color: black;
+      background-color: white;
+      border: 1px solid;
+      border-collapse: collapse;
+      text-align: center;
+    }
+    #phraseContainer {
+      margin-bottom: 20px;
+    }
+    button {
+      width: inherit;
+    }
+    #clipboardNotice {
+      margin: 0px;
+    }
+  </style>
+
+</head>
+
+<body>
+
+<div id="phraseContainer">
+  <label for="phraseField">Enter phrase:</label><br />
+  <input type="text" id="phraseField" maxlength="99" />
+</div>
+
+<div id="indexTableContainer">
+<table id="indexTable">
+  <tbody>
+    <tr id="positionRow"><td></td></tr>
+    <tr id="characterRow"><td></td></tr>
+  </tbody>
+</table>
+<p id="clipboardNotice">Click a button to copy that character to the clipboard.</p>
+</div>
+
+</body>
+
+</html>
