@@ -4,7 +4,20 @@ Password Character Picker
 A Firefox add-on that shows the position of each character in a given 
 phrase, making it easier to determine the character at a specific 
 position. Useful for those 'enter nth character of your password' 
-security prompts of certain sites. 
+security prompts of certain sites.
+
+
+Build Requirements
+------------------
+
+The Password Character Picker add-on built using the Mozilla Add-on SDK
+(https://developer.mozilla.org/en-US/Add-ons/SDK). Windows Powershell
+is used to assist with the build process: Call Run.ps1 to test the
+add-on in Firefox. Call build.ps1 to build and create an XPI. The latter
+script depends upon the following:
+
+  * NPM package 'jslint' (https://www.npmjs.com/package/jslint)
+  * NPM package 'yamljs' (https://www.npmjs.com/package/yamljs)
 
 
 License
