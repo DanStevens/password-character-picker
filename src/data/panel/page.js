@@ -30,7 +30,7 @@ function phraseFieldKeyUpHander() {
 }
 
 function generateindexTableContainer(phrase) {
-    positionRow.innerHTML = characterRow.innerHTML = '';
+    positionRow.textContent = characterRow.textContent = '';
     
     phrase.split('').forEach(function (character, i) {
         var positionCell = createTableCell((i + 1).toString(), cellSize);
@@ -42,7 +42,8 @@ function generateindexTableContainer(phrase) {
         if (maskButtons || character !== ' ') {
             var characterButton = document.createElement('button');
             characterButton.value = character;
-            characterButton.innerHTML = maskButtons ? maskChar : character;
+            characterButtonText = document.createTextNode(maskButtons ? maskChar : character)
+            characterButton.appendChild(characterButtonText);
             characterButton.addEventListener('click', characterButtonClickHandler);
             characterCell.appendChild(characterButton);
         }
@@ -51,9 +52,9 @@ function generateindexTableContainer(phrase) {
     indexTable.style.width = cellSize * phrase.length;
 }
 
-function createTableCell(contents, width) {
+function createTableCell(text, width) {
     var cell = document.createElement('td');
-    cell.innerHTML = contents;
+    cell.textContent = text;
     cell.style.width = width;
     return cell;
 }
