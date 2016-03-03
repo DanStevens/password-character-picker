@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RDF xmlns="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:em="http://www.mozilla.org/2004/em-rdf#">
+    <Description about="urn:mozilla:install-manifest">
+          <em:id>phrase-indexer@doomy.co.uk</em:id>
+          <em:type>2</em:type>
+          <em:bootstrap>true</em:bootstrap>
+          <em:unpack>false</em:unpack>
+          <em:version>1.3.0</em:version>
+          <em:name>Password Character Picker</em:name>
+          <em:description>Splits a given password into individual characters. A button is provided for each character, which when clicked, copies that character to the clipboard. Useful for those &apos;enter nth character of your password&apos; security prompts of certain sites.
+</em:description>
+          <em:creator>Dan Stevens &lt;dan.stevens@doomy.co.uk&gt;</em:creator>
+          <em:homepageURL>https://github.com/DanStevens/password-character-picker</em:homepageURL>
+          <em:optionsURL>data:text/xml,&lt;placeholder/&gt;</em:optionsURL>
+          <em:optionsType>2</em:optionsType>
+
+          <em:targetApplication>
+            <Description>
+              <em:id>{ec8030f7-c20a-464f-9b0e-13a3a9e97384}</em:id>
+              <em:minVersion>38.0a1</em:minVersion>
+              <em:maxVersion>43.0</em:maxVersion>
+</Description>
+</em:targetApplication>
+
+
+    </Description>
+
+</RDF>
