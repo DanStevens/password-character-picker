@@ -1,3 +1,5 @@
+"use strict";
+
 // Config
 var cellSize = "24px";
 var maskChar = '•';
@@ -9,17 +11,11 @@ var phraseField = document.getElementById('phraseField');
 var indexTable = document.getElementById('indexTable');
 var indexTableContainer = document.getElementById('indexTableContainer');
 
-addon.port.on("show", function (args) {
-    maskButtons = args.prefs.maskButtons;
-    positionRow.style.height = characterRow.style.height = cellSize;
-    phraseField.setAttribute("type", args.prefs.maskPhraseInput ? "password" : "text");
-    phraseField.addEventListener('keyup', phraseFieldKeyUpHander);
-    phraseFieldKeyUpHander();
-});
-
-addon.port.on("clearPhraseInput", function (args) {
-    phraseField.value = '';
-});
+//maskButtons = args.prefs.maskButtons;
+positionRow.style.height = characterRow.style.height = cellSize;
+//phraseField.setAttribute("type", args.prefs.maskPhraseInput ? "password" : "text");
+phraseField.addEventListener('keyup', phraseFieldKeyUpHander);
+phraseFieldKeyUpHander();
 
 function phraseFieldKeyUpHander() {
     indexTableContainer.style.display = 'none';
@@ -31,18 +27,18 @@ function phraseFieldKeyUpHander() {
 
 function generateindexTableContainer(phrase) {
     positionRow.textContent = characterRow.textContent = '';
-    
+
     phrase.split('').forEach(function (character, i) {
         var positionCell = createTableCell((i + 1).toString(), cellSize);
         positionRow.appendChild(positionCell);
-        
+
         var characterCell = createTableCell("", cellSize);
         characterRow.appendChild(characterCell);
-        
+
         if (maskButtons || character !== ' ') {
             var characterButton = document.createElement('button');
             characterButton.value = character;
-            characterButtonText = document.createTextNode(maskButtons ? maskChar : character)
+            var characterButtonText = document.createTextNode(maskButtons ? maskChar : character);
             characterButton.appendChild(characterButtonText);
             characterButton.addEventListener('click', characterButtonClickHandler);
             characterCell.appendChild(characterButton);
@@ -60,5 +56,14 @@ function createTableCell(text, width) {
 }
 
 function characterButtonClickHandler() {
-    addon.port.emit("setClipboard", this.value);
+    // It's not possible to set the clipboard to arbitrary text in the WebExtensions API.
+    // You can copy text from a non-hidden text input, so position it of screen so the user
+    // cannot see it
+    var tempInput = document.createElement('input');
+    tempInput.style = "position: absolute; left: -1000px; top: -1000px";
+    tempInput.value = this.value;
+    document.body.appendChild(tempInput);
+    tempInput.select();
+    document.execCommand("copy");
+    document.body.remove(tempInput);
 }
