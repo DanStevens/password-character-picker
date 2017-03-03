@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Preferences</title>
+<style>
+    body {
+        color: #333;
+        font: 15px "Segoe UI", sans-serif;
+    }
+    h2 {
+        font-weight: normal;
+    }
+    input[type=checkbox] {
+
+    }
+    button {
+        font-size: inherit;
+        font-family: inherit;
+        min-height: 30px;
+        min-width: 6.3em;
+    }
+    .pcp-hidden {
+        display: none;
+    }
+    #pcp-preference-table tbody tr:first-child td:first-child {
+        width: 50%;
+    }
+    .pcp-preference-description, #pcp-saved-notice {
+        padding-left: 2em;
+        font-size: 90.9%;
+        color: graytext;
+    }
+</style>
+</head>
+<body>
+    <h2>Preferences</h2>
+    <form id="pcp-preference-form" name="preferences">
+        <table id="pcp-preference-table">
+            <tbody>
+                <tr>
+                    <td>
+                        <label for="pcp-mask-phrase-pref">Mask Input Phrase</label>
+                    </td>
+                    <td>
+                        <input class="pcp-preference" type="checkbox" id="pcp-mask-phrase-pref" name="maskPhraseInput" />
+                    </td>
+                </tr>
+                <tr>
+                    <td class="pcp-preference-description">
+                        If set to true, the contents of the 'Enter Phrase' input will be masked.
+                    </td>
+                </tr>
+            </tbody>
+            <tbody>
+                <tr>
+                    <td>
+                        <label for="pcp-mask-buttons-pref">Mask Text of Character Buttons</label>
+                    </td>
+                    <td>
+                        <input class="pcp-preference" type="checkbox" id="pcp-mask-buttons-pref" name="maskButtons" />
+                    </td>
+                </tr>
+                <tr>
+                    <td class="pcp-preference-description">
+                        If set to true, the text within password character buttons will be masked.
+                    </td>
+                </tr>
+            </tbody>
+            <tbody>
+                <tr>
+                    <td>
+                        <label for="pcp-clear-phrase-on-page-turn-pref">
+                            Clear Input Phrase When Active Tab Reloads
+                        </label>
+                    </td>
+                    <td>
+                        <input class="pcp-preference" type="checkbox" id="pcp-clear-phrase-on-page-turn-pref"
+                               name="clearPhraseOnPageTurn" />
+                    </td>
+                </tr>
+                <tr>
+                    <td class="pcp-preference-description">
+                        If set to true, the text within password character buttons will be masked.
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <p>
+            <button id="pcp-save-button" type="submit">Save</button>
+            <span id="pcp-saved-notice" class="pcp-hidden">Saved</span>
+        </p>
+    </form>
+
+    <script src="preferences.js"></script>
+</body>
+</html>
