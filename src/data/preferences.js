@@ -1,15 +1,17 @@
 "use strict";
 const storageArea = browser.storage.local;
-const preferenceInputs = document.forms.preferences.querySelectorAll("input.preference");
+const preferenceInputs = document.forms.preferences.querySelectorAll("input.pcp-preference");
 console.log('preferenceInputs', preferenceInputs);
 
 function loadPreferences() {
     function storageReceived(storage) {
         console.log('storage.preferences', storage.preferences);
 
-        for (let i = 0; i < preferenceInputs.length; i++) {
-            let input = preferenceInputs[i];
-            setInputValue(input, storage.preferences[input.name]);
+        if (storage.preferences) {
+            for (let i = 0; i < preferenceInputs.length; i++) {
+                let input = preferenceInputs[i];
+                setInputValue(input, storage.preferences[input.name]);
+            }
         }
     }
 
