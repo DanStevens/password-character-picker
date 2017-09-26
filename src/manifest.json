@@ -1,0 +1,27 @@
+{
+  "manifest_version": 2,
+  "name": "Password Character Picker",
+  "version": "2.0.0",
+  "description": "Splits a given password into individual characters. A button is provided for each character, which when clicked, copies that character to the clipboard. Useful for those 'enter nth character of your password' security prompts of certain sites.\n",
+  "author": "Dan Stevens <dan.stevens@doomy.co.uk>",
+  "homepage": "https://github.com/DanStevens/password-character-picker",
+  "icons": {
+    "16": "icons/icon16.png",
+    "32": "icons/icon.svg"
+  },
+  "permissions": [
+    "storage"
+  ],
+  "options_ui": {
+    "page": "data/preferences.html"
+  },
+  "browser_action": {
+    "browser_style": false,
+    "default_title": "Password Character Picker",
+    "default_icon": {
+      "16": "icons/icon16.png",
+      "32": "icons/icon.svg"
+    },
+    "default_popup": "data/panel/page.html"
+  }
+}
