@@ -7,7 +7,7 @@ Set-Location "$PSScriptRoot\src"
 
 #..\Assert-JavascriptCodeIsValid.ps1
 
-jpm run
+web-ext run
 
 Write-Verbose "Setting location back to $CallerLocation"
 Set-Location $CallerLocation
