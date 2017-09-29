@@ -1,0 +1,28 @@
+{
+  "env": {
+    "browser": true,
+    "es6": true,
+    "webextensions": true
+  },
+  "extends": "eslint:recommended",
+  "rules": {
+    "indent": [
+      "warn",
+      4
+    ],
+    "linebreak-style": [
+      "error",
+      "windows"
+    ],
+    "quotes": "off",
+    "semi": [
+      "error",
+      "always"
+    ],
+    "no-console": "warn",
+    "no-empty": "warn",
+    "no-undef": "warn",
+    "no-unused-vars": "warn",
+    "no-var": "error"
+  }
+}
