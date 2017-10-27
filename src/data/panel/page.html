@@ -4,6 +4,9 @@
   <title>Password Character Picker</title>
   <meta charset="UTF-8" />
   <style>
+    .backgroundIcon {
+      background:url(../../icons/icon-light.svg) center center no-repeat;
+    }
     body {
       width: 500px;
       height: 175px;
@@ -12,6 +15,10 @@
     }
     div {
       width: 100%;
+    }
+    #initialContainer img {
+      display: block;
+      margin: auto;
     }
     #phraseField {
       width: inherit;
@@ -43,21 +50,23 @@
 
 </head>
 
-<body>
+<body class="backgroundIcon">
 
-<div id="phraseContainer">
-  <label for="phraseField">Enter phrase:</label><br />
-  <input type="text" id="phraseField" maxlength="99" />
-</div>
+<div id="controlContainer" style="display: none">
+  <div id="phraseContainer">
+    <label for="phraseField">Enter phrase:</label><br />
+    <input type="text" id="phraseField" maxlength="99" />
+  </div>
 
-<div id="indexTableContainer">
-<table id="indexTable">
-  <tbody>
-    <tr id="positionRow"><td></td></tr>
-    <tr id="characterRow"><td></td></tr>
-  </tbody>
-</table>
-<p id="clipboardNotice">Click a button to copy that character to the clipboard.</p>
+  <div id="indexTableContainer">
+  <table id="indexTable">
+    <tbody>
+      <tr id="positionRow"><td></td></tr>
+      <tr id="characterRow"><td></td></tr>
+    </tbody>
+  </table>
+  <p id="clipboardNotice">Click a button to copy that character to the clipboard.</p>
+  </div>
 </div>
 
 <script src="page.js"></script>

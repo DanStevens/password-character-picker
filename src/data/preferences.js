@@ -3,24 +3,22 @@ const storageArea = browser.storage.local;
 const preferenceInputs = document.forms.preferences.querySelectorAll("input.pcp-preference");
 console.log('preferenceInputs', preferenceInputs);
 
-function loadPreferences() {
-    function storageReceived(storage) {
-        console.log('storage.preferences', storage.preferences);
+async function loadPreferencesAsync() {
 
-        if (storage.preferences) {
+    try {
+        const result = await storageArea.get('preferences');
+
+        console.log('storage.preferences', result.preferences);
+        
+        if (result.preferences) {
             for (let i = 0; i < preferenceInputs.length; i++) {
                 let input = preferenceInputs[i];
-                setInputValue(input, storage.preferences[input.name]);
+                setInputValue(input, result.preferences[input.name]);
             }
         }
-    }
-
-    function onError(error) {
+    } catch (error) {
         console.log("Error when retrieving preferences:", error);
     }
-
-    const storageGetResult = storageArea.get('preferences');
-    storageGetResult.then(storageReceived, onError);
 }
 
 function getInputValue(input) {
@@ -49,18 +47,10 @@ function setInputValue(input, value) {
 //    return result[input.name] = getInputValue(input);
 //}
 
-function savePreferences(e) {
-    function storageSaved() {
-        document.getElementById('pcp-saved-notice').classList.remove('pcp-hidden');
-    }
-
-    function onError(error) {
-        console.log("Error when saving preferences:", error);
-    }
-
+async function savePreferencesAsync(e) {
     e.preventDefault();
-
-//  var preferenceInputs = document.forms.preferences.querySelector("input.preference");
+    
+    //  var preferenceInputs = document.forms.preferences.querySelector("input.preference");
     console.log('preferenceInputs', preferenceInputs);
 
     const preferenceValues = {};
@@ -71,9 +61,13 @@ function savePreferences(e) {
 
     //var preferenceValues = preferenceInputs.reduce(preferenceAccumulator, {});
     console.log('Saving to storage', preferenceValues);
-    let storageSetResult = storageArea.set({preferences: preferenceValues});
-    storageSetResult.then(storageSaved, onError);
+    try {
+        await storageArea.set({preferences: preferenceValues});
+        document.getElementById('pcp-saved-notice').classList.remove('pcp-hidden');
+    } catch (error) {
+        console.log("Error when saving preferences:", error);
+    }
 }
 
-document.addEventListener("DOMContentLoaded", loadPreferences);
-document.forms.preferences.addEventListener("submit", savePreferences);
+document.addEventListener("DOMContentLoaded", loadPreferencesAsync);
+document.forms.preferences.addEventListener("submit", savePreferencesAsync);
